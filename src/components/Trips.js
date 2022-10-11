@@ -7,6 +7,7 @@ import Data from '../data'
 console.log(Data);
 
 const SERVER = process.env.REACT_APP_SERVER;
+console.log('delete lol',SERVER)
 
 class Trips extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Trips extends Component {
     const baseUrl = 'https://api.flightapi.io/roundtrip';
     const extension = '1/0/0/Economy/USD';
     const url = `${baseUrl}/${API_KEY}/${depAirport}/${arrAirport}/${dep}/${arr}/${extension}`
+    console.log('lol delete', url);
     try {
       const locationurl = 'https://us1.locationiq.com/v1/search?key=pk.73569dbb47c4984489b6e5efc1229ebf&q=seattle&format=json';
       const location = await axios.get(locationurl);
