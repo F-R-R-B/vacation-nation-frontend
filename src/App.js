@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -7,10 +8,9 @@ import About from './components/About';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+class App extends Component {
 
-  
-  const getFlights = async() => {
+  getFlights = async() => {
     const depAirport = 'SEA';
     const arrAirport = 'VPS';
     const dep = '2022-11-13';
@@ -49,38 +49,38 @@ function App() {
     }
   }
 
-  return (
-    <div className='min-h-screen flex flex-col bg-gray-100'>
+  render() {
+    return (
+      <div className='relative flex flex-col bg-cyan-100' style={{'min-height': '100vh'}}> 
+        <Router >
+          <Header />
+          <div className='mb-auto'>
+            <Routes>
 
-      <Router >
-        <Header />
-        <div className='mb-auto'>
-          <Routes>
-            <Route index element={ <Home /> }></Route>
-            <Route
-              exact path="/search" 
-              element={<Search
-                  
-              />}>
-            </Route>
-            <Route
-              exact path="/trips" 
-              element={<Trips
-                
-              />}>
-            </Route>
-            <Route
-              exact path="/about" 
-              element={<About
-                
-              />}>
-            </Route>
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
-    </div>
-  );
+              <Route index element={ <Home /> }></Route>
+
+              <Route
+                exact path="/search" 
+                element={<Search />}>
+              </Route>
+
+              <Route
+                exact path="/trips" 
+                element={<Trips />}>
+              </Route>
+
+              <Route
+                exact path="/about" 
+                element={<About />}>
+              </Route>
+
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

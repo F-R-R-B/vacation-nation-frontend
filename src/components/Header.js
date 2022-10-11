@@ -5,7 +5,7 @@ class Header extends Component {
   render () {
     return (
       <div className="w-screen h-16">
-        <nav className="fixed top-0 z-10 h-16 w-screen bg-orange-500 grid grid-cols-2 items-center">
+        <nav className="fixed top-0 z-10 h-16 w-screen bg-orange-500 text-gray-100 grid grid-cols-2 items-center">
           <div className="font-bold text-2xl">LOGO</div>
           <div className="flex justify-evenly items-center font-semibold text-xl">
             <Link to='/' > 
