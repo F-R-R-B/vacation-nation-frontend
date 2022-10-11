@@ -1,10 +1,16 @@
 import axios from 'axios';
-import './App.css';
+import Header from './components/Header';
+import Home from './components/Home';
+import Search from './components/Search';
+import Trips from './components/Trips';
+import About from './components/About';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
   
-  const get = async() => {
+  const getFlights = async() => {
     const depAirport = 'SEA';
     const arrAirport = 'VPS';
     const dep = '2022-11-13';
@@ -43,25 +49,36 @@ function App() {
     }
   }
 
-  const res = get();
-  console.log("🚀 ~ file: test.mjs ~ line 19 ~ res", res);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='min-h-screen flex flex-col bg-gray-100'>
+
+      <Router >
+        <Header />
+        <div className='mb-auto'>
+          <Routes>
+            <Route index element={ <Home /> }></Route>
+            <Route
+              exact path="/search" 
+              element={<Search
+                  
+              />}>
+            </Route>
+            <Route
+              exact path="/trips" 
+              element={<Trips
+                
+              />}>
+            </Route>
+            <Route
+              exact path="/about" 
+              element={<About
+                
+              />}>
+            </Route>
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </div>
   );
 }
