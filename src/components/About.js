@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Profile from "./Profile";
+import AboutMe from "./AboutMe";
 
 class About extends Component {
   render () {
@@ -15,10 +15,10 @@ class About extends Component {
           <h2 className="mb-6 font-bold text-3xl text-slate-800 drop-shadow-lg">
             <span className="text-orange-500">About</span> our Team<span className="text-orange-500">.</span>
           </h2>
-          <Profile name='Joe' />
-          <Profile name='Julian' />
-          <Profile name='Ian' />
-          <Profile name='Mathieu' />
+          <AboutMe name='Joe' />
+          <AboutMe name='Julian' />
+          <AboutMe name='Ian' />
+          <AboutMe name='Mathieu' />
         </div>
 
       </div>

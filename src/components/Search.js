@@ -21,9 +21,12 @@ class Search extends Component {
       let destinationAPI = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${data.destination}&format=json`;
       let destinationResponse = await axios.get(destinationAPI);
 
-      const searchResults = await axios.get(`${process.env.REACT_APP_BACKEND}/flights?originlat=${originResponse.data[0].lat}&originlon=${originResponse.data[0].lon}&destinationlat=${destinationResponse.data[0].lat}&destinationlon=${destinationResponse.data[0].lon}&departureDate=${data.departDate}&returnDate=${data.returnDate}
-    `);
-      this.setState({results:searchResults.data})
+      const searchResponse = await axios.get(`${process.env.REACT_APP_BACKEND}/flights?originlat=${originResponse.data[0].lat}&originlon=${originResponse.data[0].lon}&destinationlat=${destinationResponse.data[0].lat}&destinationlon=${destinationResponse.data[0].lon}&departureDate=${data.departDate}&returnDate=${data.returnDate}
+      `);
+      const searchResults = searchResponse.data
+      console.log("🚀 ~ file: Search.js ~ line 27 ~ Search ~ handleSearch= ~ searchResponse", searchResponse);
+      
+      this.setState({results:searchResults})
     } catch (error) {
       console.log(error.message);
     }
