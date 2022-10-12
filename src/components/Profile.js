@@ -1,13 +1,25 @@
-import { Component } from "react";
+import React from "react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from './Loading';
 
-class Profile extends Component {
-  render () {
-    return (
-      <div className="h-16">
-        <h3 className="text-2xl">{this.props.name}</h3>
-      </div>
-    );
+const Profile = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
   }
-}
 
-export default Profile;
+  return (
+    isAuthenticated && (
+      <div>
+        <img src={user.picture} alt={user.name} />
+        <h2>{user.name}</h2>
+        <p>{user.email}</p>
+      </div>
+    )
+  );
+};
+
+export default withAuthenticationRequired(Profile, {
+  onRedirecting: () => <Loading />,
+});

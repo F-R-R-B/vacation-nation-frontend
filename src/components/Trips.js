@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Accordion, AccordionItem } from './Accordion'
+import { withAuth0 } from '@auth0/auth0-react';
 import 'tw-elements';
 import axios from "axios";
 import Data from '../data'
@@ -53,8 +54,9 @@ class Trips extends Component {
   }
 
   render () {
+    const { isAuthenticated } = this.props.auth0
     console.log(this.state);
-    return (
+    return ( isAuthenticated ?
       <div className='mx-auto my-6 px-6 max-w-screen-lg'>
         <h1 className="my-6 font-bold text-3xl text-center">Your Trips</h1>
         <Accordion>
@@ -69,9 +71,12 @@ class Trips extends Component {
           )}
           
         </Accordion>
+      </div> :
+      <div className='mx-auto my-6 px-6 h-96 max-w-screen-lg grid place-content-center font-bold text-gray-700 text-2xl' >
+        <div>Log in now to use this feature!</div>
       </div>
     );
   }
 }
 
-export default Trips;
+export default withAuth0(Trips);
