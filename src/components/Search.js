@@ -1,13 +1,14 @@
 import axios from "axios";
 import { Component } from "react";
 import SearchForm from "./SearchForm";
+import FlightCard from "./FlightCard";
 
 class Search extends Component {
   constructor(props){
     super(props);
     this.state={
       search:{},
-      results:{}
+      results:null
     }
   }
 
@@ -32,7 +33,13 @@ class Search extends Component {
     return (
       <div>
         <div>Search</div>
-        <SearchForm handleSearch={this.handleSearch}/>
+        <SearchForm handleSearch={this.handleSearch} />
+        <div className="m-3 flex justify-between">
+          {this.state.results && 
+          this.state.results.map((result, idx) => {
+            return <FlightCard data={result} idx={idx}/>
+          })}
+        </div>
       </div>
     );
   }
