@@ -31,7 +31,7 @@ class AccordionItem extends Component {
           <div className="accordion-body py-4 px-5">
             <h1 className="font-semibold text-2xl"> {this.props.title} </h1>
             <p> {this.props.bodyText} </p>
-            
+            <button onClick={this.props.deleteTrip}>Delete Trip?</button>
           </div>
         </div>
       </div>
