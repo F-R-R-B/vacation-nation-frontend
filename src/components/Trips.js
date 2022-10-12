@@ -17,56 +17,11 @@ class Trips extends Component {
     }
   }
 
-  getFlights = async() => {
-    const depAirport = 'SEA';
-    const arrAirport = 'VPS';
-    const dep = '2022-11-13';
-    const arr = '2022-11-20';
-
-    const API_KEY = '63449405305b47e49ad6a37d';
-  
-    const baseUrl = 'https://api.flightapi.io/roundtrip';
-    const extension = '1/0/0/Economy/USD';
-    const url = `${baseUrl}/${API_KEY}/${depAirport}/${arrAirport}/${dep}/${arr}/${extension}`
-    console.log('lol delete', url);
-    try {
-      const locationurl = 'https://us1.locationiq.com/v1/search?key=pk.73569dbb47c4984489b6e5efc1229ebf&q=seattle&format=json';
-      const location = await axios.get(locationurl);
-      console.log("🚀 ~ file: Trips.js ~ line 33 ~ Trips ~ getFlights=async ~ location", location);
-      
-      // const response = await axios.get(url);
-      
-      const data = Data;
-      console.log("🚀 ~ file: Trips.js ~ line 33 ~ Trips ~ getFlights=async ~ data", data);
-      
-      // const data = response.data;
-      const flights = data.trips;
-      
-      const legs = data.legs;
-      const fares = data.fares;
-      
-      const results = flights.map(el => {
-        const newTrip = ({
-          id: el.id, 
-          departure: legs.find(leg => leg.id === el.legIds[0]).departureDateTime, 
-          arrival: legs.find(leg => leg.id === el.legIds[1]).arrivalDateTime, 
-          price: fares.find(fare => fare.tripId === el.id).price.totalAmount
-        });
-        // console.log("🚀 ~ file: test.js ~ line 15 ~ nonstop ~ newTrip", newTrip);
-        return newTrip;
-      } );
-      // console.log("🚀 ~ file: test.js ~ line 7 ~ results", results);
-      return results;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   getTrips = async() => {
     try {
       // const res = await axios.get(`${SERVER}/trips`);
       // const trips = res.data;
-      const flights = await this.getFlights();
+      const flights = await axios.get(`${process.env.REACT_APP_BACKEND}/saved`);
       console.log("🚀 ~ file: Trips.js ~ line 20 ~ Trips ~ getTrips=async ~ trips", flights);
       return flights;
     } catch (error) {
@@ -74,28 +29,29 @@ class Trips extends Component {
     }
   }
 
+  deleteTrip = async (id) => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_BACKEND}/saved/${id}`);
+      let filteredTrips = this.state.trips.filter((trip) => {
+        return trip._id !== id;
+      });
+      this.setState({ trips: filteredTrips });
+    } catch (error) {
+      console.log('delete trip error', error);
+    }
+  } 
+
   async componentDidMount() {
     try {
       const trips = await this.getTrips();
       console.log("🚀 ~ file: Trips.js ~ line 70 ~ Trips ~ componentDidMount ~ trips", trips);
-      this.setState({ trips: trips })
+      this.setState({ trips: trips.data })
     } catch (error) {
       console.log("🚀 ~ file: Trips.js ~ line 73 ~ Trips ~ componentDidMount ~ error", error);
       
     }
   }
 
-  handleChange = (date) => {
-    this.setState({
-      startDate: date
-    })
-  }
-
-  onFormSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state.startDate)
-  }
-  
   render () {
     console.log(this.state);
     return (
@@ -104,10 +60,11 @@ class Trips extends Component {
         <Accordion>
           {this.state.trips && this.state.trips.map((v, i) => 
             <AccordionItem 
-              key={v.id}
+              key={v._id}
               i={i}
-              title={v.id}
-              bodyText={v.price}>
+              title={v.origin}
+              bodyText={v.price}
+              deleteTrip={() => this.deleteTrip(v._id)}>
             </AccordionItem>
           )}
           
