@@ -8,7 +8,7 @@ const Auth0ProviderRedirect = ({ children }) => {
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
   const location = useLocation().pathname;
   localStorage['goingTo'] = location;
-  console.log(localStorage);
+  // console.log(localStorage);
 
   const onRedirectCallback = (appState) => {
     return <Navigate to={localStorage['goingTo']} replace={true}/>
