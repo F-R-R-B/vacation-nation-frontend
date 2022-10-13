@@ -13,9 +13,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className='relative flex flex-col bg-cyan-100' style={{'minHeight': '100vh'}}> 
+      <div className='relative flex flex-col bg-gradient-to-b from-sky-50 via-cyan-100 to-sky-50' style={{'minHeight': '100vh'}}> 
             <Header />
-            <div className='mb-auto'>
+            <div className='grow'>
               <Routes>
 
                 <Route index element={ <Home /> }></Route>

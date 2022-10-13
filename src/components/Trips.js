@@ -56,7 +56,6 @@ class Trips extends Component {
       this.setState({ trips: trips.data })
     } catch (error) {
       console.log("🚀 ~ file: Trips.js ~ line 73 ~ Trips ~ componentDidMount ~ error", error);
-      
     }
   }
 
