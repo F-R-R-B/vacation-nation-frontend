@@ -56,23 +56,23 @@ class Trips extends Component {
   render () {
     const { isAuthenticated } = this.props.auth0
     console.log(this.state);
-    return ( isAuthenticated ?
-      <div className='mx-auto my-6 px-6 max-w-screen-lg'>
+    return isAuthenticated ? (
+      <div className="mx-auto my-6 px-6 max-w-screen-lg">
         <h1 className="my-6 font-bold text-3xl text-center">Your Trips</h1>
         <Accordion>
-          {this.state.trips && this.state.trips.map((v, i) => 
-            <AccordionItem 
-              key={v._id}
-              i={i}
-              title={v.origin}
-              bodyText={v.price}
-              deleteTrip={() => this.deleteTrip(v._id)}>
-            </AccordionItem>
-          )}
-          
+          {this.state.trips &&
+            this.state.trips.map((trip, i) => (
+              <AccordionItem
+                key={trip._id}
+                i={i}
+                trip={trip}
+                deleteTrip={() => this.deleteTrip(trip._id)}
+              ></AccordionItem>
+            ))}
         </Accordion>
-      </div> :
-      <div className='mx-auto my-6 px-6 h-96 max-w-screen-lg grid place-content-center font-bold text-gray-700 text-2xl' >
+      </div>
+    ) : (
+      <div className="mx-auto my-6 px-6 h-96 max-w-screen-lg grid place-content-center font-bold text-gray-700 text-2xl">
         <div>Log in now to use this feature!</div>
       </div>
     );
