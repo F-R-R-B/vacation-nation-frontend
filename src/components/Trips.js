@@ -1,14 +1,10 @@
 import { Component } from "react";
-import { Accordion, AccordionItem } from './Accordion'
-import { withAuth0 } from '@auth0/auth0-react';
 import 'tw-elements';
+import { Accordion, AccordionItem } from './Accordion'
+import { withAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import Loading from "./Loading";
 import axios from "axios";
-import Data from '../data'
 
-console.log(Data);
-
-const SERVER = process.env.REACT_APP_SERVER;
-console.log('delete lol',SERVER)
 
 class Trips extends Component {
   constructor(props) {
@@ -20,9 +16,14 @@ class Trips extends Component {
 
   getTrips = async() => {
     try {
-      // const res = await axios.get(`${SERVER}/trips`);
-      // const trips = res.data;
-      const flights = await axios.get(`${process.env.REACT_APP_BACKEND}/saved`);
+      let headers;
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+        headers = { "Authorization": `Bearer ${jwt}` }
+        // console.log("🚀 ~ file: Search.js ~ line 39 ~ Search ~ handleSearch= ~ headers", headers);
+      }
+      const flights = await axios.get(`${process.env.REACT_APP_BACKEND}/saved`, {headers: headers});
       console.log("🚀 ~ file: Trips.js ~ line 20 ~ Trips ~ getTrips=async ~ trips", flights);
       return flights;
     } catch (error) {
@@ -32,7 +33,13 @@ class Trips extends Component {
 
   deleteTrip = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND}/saved/${id}`);
+      let headers;
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+        headers = { "Authorization": `Bearer ${jwt}` }
+      }
+      await axios.delete(`${process.env.REACT_APP_BACKEND}/saved/${id}`, {headers: headers});
       let filteredTrips = this.state.trips.filter((trip) => {
         return trip._id !== id;
       });
@@ -45,7 +52,7 @@ class Trips extends Component {
   async componentDidMount() {
     try {
       const trips = await this.getTrips();
-      console.log("🚀 ~ file: Trips.js ~ line 70 ~ Trips ~ componentDidMount ~ trips", trips);
+      // console.log("🚀 ~ file: Trips.js ~ line 70 ~ Trips ~ componentDidMount ~ trips", trips);
       this.setState({ trips: trips.data })
     } catch (error) {
       console.log("🚀 ~ file: Trips.js ~ line 73 ~ Trips ~ componentDidMount ~ error", error);
@@ -55,7 +62,7 @@ class Trips extends Component {
 
   render () {
     const { isAuthenticated } = this.props.auth0
-    console.log(this.state);
+    // console.log(this.state);
     return ( isAuthenticated ?
       <div className='mx-auto my-6 px-6 max-w-screen-lg'>
         <h1 className="my-6 font-bold text-3xl text-center">Your Trips</h1>
@@ -79,4 +86,6 @@ class Trips extends Component {
   }
 }
 
-export default withAuth0(Trips);
+export default withAuthenticationRequired(withAuth0(Trips), {
+  onRedirecting: () => <Loading />,
+});
