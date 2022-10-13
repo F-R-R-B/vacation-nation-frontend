@@ -18,11 +18,11 @@ class Main extends Component {
 
   render () {
     return (
-      <div>
-        <div className="block p-6 rounded-lg shadow-lg bg-white">
+      <div className="mt-3">
+        <div className="block p-2 mx-3 rounded-lg shadow-lg bg-white">
           <form onSubmit={this.handleSubmit}>
             <div className="grid grid-cols-5 gap-4">
-              <div className="form-group mb-6" id="origin-div">
+              <div className="form-group " id="origin-div">
                 <input
                   type="text"
                   className="form-control
@@ -46,7 +46,7 @@ class Main extends Component {
                   placeholder="Origin"
                 />
               </div>
-              <div className="form-group mb-6" id="dest-div">
+              <div className="form-group " id="dest-div">
                 <input
                   type="text"
                   className="form-control
@@ -70,22 +70,61 @@ class Main extends Component {
                 />
               </div>
 
-              <div className="form-group mb-6" id="depart-div">
+              <div className="form-group " id="depart-div">
                 <div className="flex items-center justify-center">
-                  <input type="date" id="departDate" name="departure" />
+                  <input
+                    type="date"
+                    id="departDate"
+                    name="departure"
+                    className="form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  />
                 </div>
               </div>
-              <div className="form-group mb-6" id="return-div">
+              <div className="form-group " id="return-div">
                 <div className="flex items-center justify-center">
-                  <input type="date" id="returnDate" name="return" />
+                  <input
+                    type="date"
+                    id="returnDate"
+                    name="return"
+                    className="form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  />
                 </div>
               </div>
-              <button
-                type="submit"
-                className="
+              <div className="form-group " id="return-div">
+                <button
+                  type="submit"
+                  className="
                 w-full
                 px-6
-                py-2.5
+                py-3
                 bg-blue-600
                 text-white
                 font-medium
@@ -100,9 +139,10 @@ class Main extends Component {
                 transition
                 duration-150
                 ease-in-out"
-              >
-                GET VACATED
-              </button>
+                >
+                  GET VACATED
+                </button>
+              </div>
             </div>
           </form>
         </div>

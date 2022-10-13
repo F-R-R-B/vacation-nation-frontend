@@ -49,7 +49,6 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <div>Search</div>
         <SearchForm handleSearch={this.handleSearch} />
         <div className="m-3 flex justify-between">
           {this.state.results &&
