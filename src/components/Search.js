@@ -16,11 +16,17 @@ class Search extends Component {
 
   auth0 = this.props.auth0;
 
-  saveFlight = async (flightIdx) => {
+  saveFlight = async (flightIdx, nickname, notes) => {
+    
+    console.log('trying to saveFlight at Search');
+
+
     console.log(flightIdx);
     const flight = this.state.results[flightIdx];
     const { user } = this.auth0;
     let data = {
+      nickname: nickname,
+      notes: notes,
       user: user.email,
       origin: this.state.search.origin,
       destination: this.state.search.destination,
@@ -42,7 +48,8 @@ class Search extends Component {
         arrivalTime: flight.return.arrivalTime,
       }
     }
-
+    console.log("🚀 ~ file: Search.js ~ line 51 ~ Search ~ saveFlight= ~ data", data);
+    
     let headers;
     if (this.props.auth0.isAuthenticated) {
       const res = await this.props.auth0.getIdTokenClaims();
@@ -96,7 +103,7 @@ class Search extends Component {
         <div className="m-3 flex flex-wrap justify-evenly gap-12">
           {this.state.results &&
             this.state.results.map((result, idx) => {
-              return <FlightCard data={result} key={idx} idx={idx} saveFlight={() => this.saveFlight(idx)}/>;
+              return <FlightCard data={result} key={idx} idx={idx} saveFlight={this.saveFlight}/>;
             })}
         </div>
       </div>

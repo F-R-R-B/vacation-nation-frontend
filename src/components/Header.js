@@ -16,7 +16,7 @@ class Header extends Component {
     
     return (
       <div className="w-screen h-16">
-        <nav className="fixed top-0 z-10 h-20 w-screen bg-orange-500 text-gray-100 flex flex-col md:h-16 md:grid grid-cols-2 items-center">
+        <nav className="fixed top-0 z-10 h-20 w-screen bg-sky-50 text-orange-500 flex flex-col md:h-16 md:grid grid-cols-2 items-center">
           <div className="mx-auto my-2 md:my-0 md:ml-6 font-bold text-xl">
             {isLoading ? 'Loading...' : <AuthButton />}
           </div>
