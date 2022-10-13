@@ -8,7 +8,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 class UserMenu extends Component {
   render() {
     const {user, isAuthenticated } = this.props.auth0;
-    console.log("🚀 ~ file: UserMenu.js ~ line 11 ~ UserMenu ~ render ~ user", user);
+    // console.log("🚀 ~ file: UserMenu.js ~ line 11 ~ UserMenu ~ render ~ user", user);
     return (
       <div className="flex justify-center">
         <div>
