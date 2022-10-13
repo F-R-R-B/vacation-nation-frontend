@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import axios from 'axios';
 import About from './components/About';
 import Home from './components/Home';
 import Header from './components/Header';
