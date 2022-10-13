@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { withAuth0 } from '@auth0/auth0-react';
-import { AuthButton } from "./AuthButtons";
+import UserMenu from './UserMenu';
 
 class Header extends Component {
   // constructor(props) {
@@ -11,14 +10,12 @@ class Header extends Component {
   // }
 
   render () {
-    const { user, isLoading } = this.props.auth0;
-    console.log("🚀 ~ file: Header.js ~ line 16 ~ Header ~ render ~ user", user);
     
     return (
       <div className="w-screen h-16">
         <nav className="fixed top-0 z-10 h-20 w-screen bg-sky-50 text-orange-500 flex flex-col md:h-16 md:grid grid-cols-2 items-center">
           <div className="mx-auto my-2 md:my-0 md:ml-6 font-bold text-xl">
-            {isLoading ? 'Loading...' : <AuthButton />}
+            Our Logo
           </div>
           <div className="w-full flex justify-evenly items-center font-semibold text-xl">
             <Link to='/' > 
@@ -33,9 +30,7 @@ class Header extends Component {
             <Link to='about' > 
               About 
             </Link>
-            <Link to='profile' > 
-              My Profile 
-            </Link>
+            <UserMenu />
           </div>
 
         </nav>
@@ -44,4 +39,4 @@ class Header extends Component {
   }
 }
 
-export default withAuth0(Header);
+export default Header;
