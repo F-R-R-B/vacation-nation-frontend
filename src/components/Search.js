@@ -48,7 +48,6 @@ class Search extends Component {
         arrivalTime: flight.return.arrivalTime,
       }
     }
-    console.log("🚀 ~ file: Search.js ~ line 51 ~ Search ~ saveFlight= ~ data", data);
     
     let headers;
     if (this.props.auth0.isAuthenticated) {

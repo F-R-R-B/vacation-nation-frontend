@@ -15,7 +15,7 @@ class Home extends Component {
           
           <div className="my-12 px-12 flex flex-col items-start md:items-center gap-2" >
             <p className="font-semibold text-lg text-gray-600">Paradise is only a click away!</p>
-            <Link to='search' className="rounded-md shadow-lg py-2 px-4 bg-cyan-700 text-teal-100 hover:-translate-y-0.5 hover:bg-cyan-800">GET STARTED NOW</Link>
+            <Link to='search' className="rounded-md shadow-lg py-2 px-4 bg-cyan-700 text-sky-50 hover:-translate-y-0.5 hover:bg-cyan-800">GET STARTED NOW</Link>
           </div>
         </div>
       </div>
