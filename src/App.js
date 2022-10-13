@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import About from './components/About';
+import Home from './components/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Search from './components/Search';
+import Trips from './components/Trips';
+import Profile from './components/Profile';
+import { Route, Routes } from 'react-router-dom';
+import { withAuth0 } from '@auth0/auth0-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <div className='relative flex flex-col bg-gradient-to-b from-sky-50 via-cyan-100 to-sky-50' style={{'minHeight': '100vh'}}> 
+            <Header />
+            <div className='grow'>
+              <Routes>
+
+                <Route index element={ <Home /> }></Route>
+
+                <Route
+                  exact path="/search" 
+                  element={<Search />}>
+                </Route>
+
+                <Route
+                  exact path="/trips" 
+                  element={<Trips />}>
+                </Route>
+
+                <Route
+                  exact path="/about" 
+                  element={<About />}>
+                </Route>
+                
+                <Route // protected
+                  exact path="/profile" 
+                  element={<Profile />}>
+                </Route>
+
+              </Routes>
+            </div>
+            <Footer />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withAuth0(App);
