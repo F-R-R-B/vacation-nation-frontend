@@ -4,15 +4,15 @@ class Footer extends Component {
   render() {
     return (
      
-<footer class="text-center flex justify-center bg-gray-900 text-white">
-  <div class="container px-6 pt-6">
-    <div class="flex justify-center mb-6">
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+<footer className="text-center flex justify-center bg-gray-900 text-white">
+  <div className="container px-6 pt-6">
+    <div className="flex justify-center mb-6">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
         data-icon="facebook-f"
-        class="w-2 h-full mx-auto"
+        className="w-2 h-full mx-auto"
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 320 512"
@@ -24,12 +24,12 @@ class Footer extends Component {
         </svg>
       </a>
 
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
           data-icon="twitter"
-          class="w-3 h-full mx-auto"
+          className="w-3 h-full mx-auto"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -41,12 +41,12 @@ class Footer extends Component {
         </svg>
       </a>
 
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
           data-icon="google"
-          class="w-3 h-full mx-auto"
+          className="w-3 h-full mx-auto"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 488 512"
@@ -58,12 +58,12 @@ class Footer extends Component {
         </svg>
       </a>
 
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
         data-icon="instagram"
-          class="w-3 h-full mx-auto"
+          className="w-3 h-full mx-auto"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -75,12 +75,12 @@ class Footer extends Component {
         </svg>
       </a>
 
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
         data-icon="linkedin-in"
-          class="w-3 h-full mx-auto"
+          className="w-3 h-full mx-auto"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -92,12 +92,12 @@ class Footer extends Component {
         </svg>
       </a>
 
-      <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+      <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
         <svg aria-hidden="true"
         focusable="false"
         data-prefix="fab"
         data-icon="github"
-          class="w-3 h-full mx-auto"
+          className="w-3 h-full mx-auto"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 496 512"
@@ -112,17 +112,17 @@ class Footer extends Component {
 
     <div>
       <form action="">
-        <div class="grid md:grid-cols-3 gird-cols-1 gap-4 flex justify-center items-center">
-          <div class="md:ml-auto md:mb-6">
-            <p class="">
+        <div className="grid md:grid-cols-3 gird-cols-1 gap-4 flex justify-center items-center">
+          <div className="md:ml-auto md:mb-6">
+            <p className="">
               <strong>Sign up for our newsletter</strong>
             </p>
           </div>
 
-          <div class="md:mb-6">
+          <div className="md:mb-6">
             <input
               type="text"
-              class="
+              className="
                 form-control
                 block
                 w-full
@@ -143,8 +143,8 @@ class Footer extends Component {
               placeholder="Email address"/>
           </div>
 
-          <div class="md:mr-auto mb-6">
-            <button type="submit" class="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          <div className="md:mr-auto mb-6">
+            <button type="submit" className="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
               Subscribe
             </button>
           </div>
@@ -152,21 +152,21 @@ class Footer extends Component {
       </form>
     </div>
 
-    <div class="mb-6">
+    <div className="mb-6">
       <p>
         Be the first to recieve our new <span className="text-orange-500 font-semibold"> SPECIAL OFFERS</span> and plan your next ADVENTURE. Get <span className="text-orange-500 font-semibold">VACATED</span>!
       </p>
     </div>
-    <div class="text-center text-orange-500 font-semibold">© 2022 Copyright F.R.R.B.</div>
+    <div className="text-center text-orange-500 font-semibold">© 2022 Copyright F.R.R.B.</div>
 
-     <div class="grid lg:grid-cols-4 md:grid-cols-2">
-      <div class="mb-6">
+     <div className="grid lg:grid-cols-4 md:grid-cols-2">
+      <div className="mb-6">
       </div>
-      <div class="mb-6">
+      <div className="mb-6">
       </div>
-      <div class="mb-6">
+      <div className="mb-6">
       </div>
-      <div class="mb-6">
+      <div className="mb-6">
       </div>
     </div>
   </div>
