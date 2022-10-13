@@ -5,14 +5,14 @@ class Main extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target)
+    // console.log(e.target)
     const data ={
       origin: e.target.origin.value,
       destination: e.target.destination.value,
       departDate: e.target.departDate.value,
       returnDate: e.target.returnDate.value,
     }
-    console.log(data);
+    // console.log(data);
     this.props.handleSearch(data);
   }
 
