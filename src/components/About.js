@@ -9,7 +9,7 @@ class About extends Component {
           <h1 className="mt-8 mb-12 font-extrabold text-5xl text-gray-700 drop-shadow-2xl">About</h1>
           <div className="text-center">
           <h2 className="mb-6 font-bold text-3xl text-slate-800 drop-shadow-lg">
-              <span className="text-orange-500">Our</span> mission statement<span className="text-orange-500">.</span>
+              <span className="text-orange-500">Mission</span> statement<span className="text-orange-500">.</span>
           </h2>
           <p class="font-semibold text-xl text-gray-700 mb-10 drop-shadow-lg">Here at <span className="text-orange-500">VacaNation</span>, we believe that fulfilling travel experiences begin not only with choosing the right destination, but having the right state of mind.</p>
           <h2 className="mb-6 font-bold text-3xl text-slate-800 drop-shadow-lg">
