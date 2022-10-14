@@ -70,7 +70,7 @@ class Main extends Component {
                 <button
                   type="submit"
                   className="w-full px-6 py-3 bg-sky-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-sky-800 hover:shadow-lg focus:bg-sky-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-sky-900 active:shadow-lg transition duration-150 ease-in-out">
-                  GET VACATED
+                  EXPLORE
                 </button>
               </div>
             </div>
